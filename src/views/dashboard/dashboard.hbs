@@ -1,0 +1,106 @@
+<div class="container-agregar-inv ocultar-agregar-inv">
+        <div class="form-inv">
+            <form action="/dashboard" method="post">
+                <span id="close-modal-inv">X</span>
+                <label for="nombre-inventario">Nombre del evento</label>
+                <input type="text" name="nombre_inv" placeholder="Nombre del evento">
+                
+                <button>Crear</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="modal-config" class="ocultar-conf">
+        <div id="options-config">
+            <i class="fa-solid fa-gear config-modal"></i>
+            
+            <form action="/dashboard/actualizar/numero/{{id_usuario}}" method="post" class="form-set-number ocultar-set">
+                <input type="text" placeholder="Numero de teléfono" name="numeroActualizado">
+                <button>Establecer</button>
+            </form>
+
+            <form action="/dashboard/eliminar/cuenta/{{id_usuario}}" method="post" class="form-delete-account ocultar-set">
+                <span>¿Estas seguro?</span>
+                <button>Si</button>
+            </form>
+
+            <div id="buttons-config">
+                <button id="actualizar-num">Actualizar numero</button>
+                <button id="eliminar-cuenta">Eliminar cuenta</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-dashboard hide-menu">
+        <ul id="nav-dash">
+            <li id="agregar-lista"><a href="#">Agregar evento</a></li>
+            <li id="configuracion"><a href="#">Configuración<i class="fa-solid fa-gear config"></i></a></li>
+        </ul>
+    </div>
+    <main class="container-dashboard">
+        
+        <header id="header-dashboard">
+            {{#if user}}
+                <i class="fa-solid fa-bars menu-hamburguer-dash"></i>
+                <h1>NutryFoodPantry</h1>
+                <section id="section-dashboard">
+                    <i class="fa-solid fa-circle-user user-dashboard"></i>
+                    <b>{{user.nombre_us}}</b>
+                    <a href="/logout"><i class="fa-solid fa-right-from-bracket logout-dashboard"></i></a>
+                </section>
+            {{/if}}
+        </header>
+
+        <section id="section-inv">
+
+            <img src="./img/fondo.png" alt="icono" class="fondo">
+    
+            <h3 id="titulo-inventarios">Bienvenido <span>{{user.nombre_us}}</span></h3>
+            
+
+            <div id="inventarios">
+                
+
+                {{#each miCocina}}
+                    <form action="" class="inventario">
+                        <div class="img-inv"><img src="./img/despensa.png" alt="despensa"></div>
+                        <div class="actions-inv">
+                            <span>{{nombre_inv}}</span>
+                            <a href="/dashboard/micocina/{{id_inventario}}"><i class="fa-regular fa-eye"></i></a>
+                        </div>
+                    </form>
+                {{/each}}
+
+                <!--<form action="#" class="inventario">
+                    <div class="img-inv"><img src="./img/caducado.png" alt="despensa"></div>
+                    <div class="actions-inv">
+                        <span>Productos Caducados</span>
+                        <button><i class="fa-regular fa-eye"></i></button>
+                    </div>
+                </form>-->
+
+                {{#each listas}}
+                    <form action="#" class="lista">
+                        <div class="img-list"><span>{{nombre_inv}}</span></div>
+                        <div class="actions-list">
+                            <a href="/dashboard/eliminar/{{id_inventario}}"><i class="fa-regular fa-trash-can"></i></a>
+                            <a href="/dashboard/lista/{{id_inventario}}"><i class="fa-regular fa-eye"></i></a>
+                        </div>
+                    </form>
+
+                {{else}}
+
+                    <div class="sin-inv">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <b id="mnsg-sin-inv">Aún no se han agregado eventos</b>
+                        <a href="/dashboard" id="add-sin-inv">Crear</a>
+                    </div>
+
+                {{/each}}
+
+            </div>
+    
+        </section>
+
+    </main>

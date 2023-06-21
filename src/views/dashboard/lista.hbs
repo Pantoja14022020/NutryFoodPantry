@@ -1,0 +1,113 @@
+
+    
+    <div class="modal-lista ocultar-lista"><!--Ahorita lo oculto-->
+        <div class="form-lista">
+            
+            <form action="/dashboard/lista/{{id_inventario}}" class="form-lista-add" method="post">
+                <a href="/dashboard/lista/{{id_inventario}}"><span id="close-modal-lista">X</span></a>
+                <label for="nombre_pro">Nombre del producto:</label>
+                <input type="text" name="nombre_pro" id="nombreProLista">
+                
+                <div id="cantidades-lista-medidas">
+                    <div id="cantidad-lista">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" name="cantidad" min="0" id="cantidadLista">
+                    </div>
+                    <select name="medida" id="medidasLista">
+                        <option value="Kg">Kg</option>
+                        <option value="Ml">Ml</option>
+                        <option value="L">L</option>
+                        <option value="Mg">Mg</option>
+                        <option value="Piezas">Piezas</option>
+                        <option value="Barra">Barras</option>
+                        <option value="Frasco">Frascos</option>
+                        <option value="Caja">Caja</option>
+                    </select>
+                </div>
+
+                <!--<label for="cantidad_min">Cantidad minima:</label>
+                <input type="number" name="cantidad_min" min="1" id="cantidadMinLista">-->
+                <div class="container-categoria">
+                    <label for="categoria">Categoria:</label>
+                    <select name="categoria" id="categoria">
+                        <option value="Frutas y verduras">Frutas y verduras</option>
+                        <option value="Producto procesado">Producto procesado</option>
+                        <option value="Lacteos">Lacteos</option>
+                        <option value="Carnes">Carnes</option>
+                        <option value="Embutidos">Embutidos</option>
+                    </select>
+                </div>
+
+                <label id="label-categoria" for="fecha_caducidad" class="ocultar-fecha">Fecha caducidad:</label>
+                <input type="date" name="fecha_caducidad" id="fecha-lista" class="ocultar-fecha">
+
+                <div id="botones-lista-form">
+                    <span id="validar-form-lista">Validar</span>
+                    <button id="button-lista" class="quitar-btn">Agregar</button>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+
+
+    <!--Cuando hay error en el modal de registrar un producto en una lista-->
+    <div class="container-error-signup ocultar-signup">
+        <div class="error-form-signup">
+            <i class="fa-regular fa-circle-xmark"></i>
+            <div class="errores-signup">
+                <b>Tienes los siguientes errores:</b>
+                <ul id="errores-ul">
+                </ul>      
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-eliminar-lista ocultar-modal-lista">
+        <form action="/dashboard/lista/eliminar/{{id_inventario}}" method="post">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <b>Usted esta a punto de eliminar un producto</b>
+            <p>¿Desea eliminarlo?</p>
+            <button>Eliminar</button>
+        </form>
+    </div>
+
+
+    <header id="header-lista">
+        <a href="/dashboard"><i class="fa-solid fa-angle-left"></i></a>
+
+        <aside id="options-lista">
+            
+            {{#if productos}}
+                <a href="/dashboard/lista/remover/productos/{{id_inventario}}" id="remover-pro">Remover productos a inventario</a>
+            {{/if}}
+
+            <h1>{{nombre_inv}}</h1>
+
+            <ul id="options-lis">
+                <li class="add-pro-lista"><i class="fa-solid fa-circle-plus"></i>Agregar producto</li>
+            </ul>
+        </aside>
+    </header>
+
+    <main class="productos-lista">
+        <table>
+            <thead>
+                <tr><th>Nombre</th> <th>Cantidad</th> <th>Acciones</th></tr>
+            </thead>
+
+            <tbody>
+                {{#each productos}}
+                    <tr><th>{{nombre_pro}}</th> <th>{{cantidad}} {{medida}}</th> <th id="actions-pro-lista"><a href="/dashboard/lista/{{id_inventario}}/editar/{{id_producto}}"><i class="fa-solid fa-rotate updated-pro"></i></a> <a href="/dashboard/lista/{{id_inventario}}/{{id_producto}}"><i class="fa-regular fa-trash-can delete-pro"></i></a></th></tr>
+                
+                {{else}}
+
+                    <div class="mnsg-add-pro-none">
+                        <b>No hay productos actualmente</b>
+                    </div>
+
+                {{/each}}
+            </tbody>
+        </table>
+    </main>

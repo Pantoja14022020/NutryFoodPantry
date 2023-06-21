@@ -1,0 +1,65 @@
+<div class="container-form">
+    <form action="/signup" id="form-signup" method="post">
+        <div id="hero-form">
+            <div id="image-hero"><img src="./img/agregar.png" alt="agregar-user"></div>
+            <p>Crea una cuenta</p>
+        </div>
+
+        <div id="data-user">
+            <div class="separator">
+                <label for="nombre">Nombre de usuario</label>
+                <input type="text" name="nombre_us" id="nombreUsSignup">
+            </div>
+
+            <div class="separator">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombreSignup">
+            </div>
+
+            <div class="separator">
+                <label for="apellido-paterno">Apellido Paterno</label>
+                <input type="text" name="ap_usuario" id="apSignup">
+            </div>
+
+            <div class="separator">
+                <label for="apellido-materno">Apellido Materno</label>
+                <input type="text" name="am_usuario" id="amSignup">
+            </div>
+
+            <div class="passwords">
+                <section class="pass">
+                    <label for="password">Nueva contraseña</label>
+                    <input type="password" name="contraseña" id="passwordSignup">
+                </section>
+
+                <section class="pass">
+                    <label for="confirm">Confirmar contraseña</label>
+                    <input type="password" name="confirm" id="passwordConfirmSignup">
+                </section>
+            </div>
+
+            <div class="separator">
+                <label for="telefono">Telefono</label>
+                <input type="text" name="telefono" id="telefonoSignup" placeholder="Ej. 7721257773">
+            </div>
+        </div>
+
+        <div id="actions">
+            <a id="verificar-form-signup">Verificar</a> <button class="btn-registrar ocultar-btn-signup">Registrarse</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<div class="container-error-signup ocultar-signup">
+    <div class="error-form-signup">
+        <i class="fa-regular fa-circle-xmark"></i>
+        <div class="errores-signup">
+            <b>Tienes los siguientes errores:</b>
+            <ul id="errores-ul">
+            </ul>      
+        </div>
+    </div>
+</div>

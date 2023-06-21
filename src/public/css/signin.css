@@ -1,0 +1,190 @@
+.flex-column-direction{
+    display: flex;
+    flex-direction: column;
+}
+
+#login-container{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-primary);
+    padding-top: .3rem;
+}
+
+#main-signin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#main-signin > h1{
+    margin: 6rem 0 2rem 0;
+    color: #fff;
+}
+
+.container-login{
+    width: 450px;
+    height: 300px;
+    background-color: #fff;
+    margin-top: 1rem;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 1.2rem;
+    position: relative;
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.27);
+}
+.container-login h3{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+#usuario{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+#form input{
+    width: 250px;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.4rem 0.4rem 0rem;
+    outline: none;
+    border: 0;
+    font-size: 16px;
+    color: #7f7f7f;
+}
+#form button{
+    width: 250px;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.4rem 0.4rem 0rem;
+    outline: none;
+    border: 0;
+    font-size: 16px;
+    color: #7f7f7f;
+}
+#form label {
+    color: #7f7f7f;
+    font-weight: 900;
+}
+#button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 1.2rem;
+}
+#form #button button{
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    width: 100px;
+    color: #fff;
+    margin: 0;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+    border-radius: 5px;
+}
+#form #button button:hover{
+    background-color: white;
+    color: var(--color-secondary);
+}
+.images > img{
+    width: 110px;
+    height: 100px;
+    position: absolute;
+    right: 1rem;
+    top: 6rem;
+}
+#registro-cuenta{
+    margin-top: 1rem;
+    color: white;
+}
+#aviso-p{
+    margin-top: 1rem;
+    color: white;
+}
+#registro-cuenta > a{
+    color: white;
+    padding: 0.2rem;
+    text-decoration: none;
+    border: 1px solid white;
+    transition: all ease-in-out 0.2s;
+}
+#registro-cuenta > a:hover{
+    background-color: white;
+    color: var(--color-primary);
+}
+
+@media screen and (max-width:520px){
+    #main-signin > h1{
+        margin-top: 5rem;
+        font-size: 1.4rem;
+    }
+
+    .container-login{
+        width: 80%;
+        height: 250px;
+    }
+
+    .container-login h3{
+        font-size: 1rem;
+    }
+
+    #form{
+        font-size: 0.8rem;
+    }
+
+    #form input{
+        font-size: 0.8rem;
+        width: 60%;
+    }
+
+    .images > img{
+        right: 1rem;
+        top: 4rem;
+    }
+
+    #form #button button{
+        font-size: 0.8rem;
+        width: 80px;
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (max-width:360px){
+    .container-login{
+        width: 90%;
+    }
+    .container-login h3{
+        font-size: 0.8rem;
+    }
+    .images{
+        display: none;
+    }
+    #button{
+        justify-content: center;
+    }
+    #form input{
+        width: 100%;
+        text-align: center;
+    }
+    #form label{
+        text-align: center;
+    }
+    #main-signin > h1{
+        font-size: 0.8rem;
+    } 
+    #registro-cuenta{
+        font-size: 0.6rem;
+    }  
+    #registro-cuenta a{
+        padding: 0.1rem;
+        font-size: 0.6rem;
+    }
+}
